@@ -1,5 +1,9 @@
+import { Carousel, CategoryPreview } from "@/components";
 
 
 export default function Home() {
-  return <h1>Hello world</h1>;
+  return <main className="max-w-screen-2xl mx-auto">
+    <Carousel />
+    <CategoryPreview />
+  </main>;
 }
