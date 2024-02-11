@@ -13,7 +13,7 @@ const CategoryPreview = () => {
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12">
+        <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-20 p-8 sm:p-12">
           <h2 className="text-lg font-medium text-white text-opacity-75">
             Self-Improvement
           </h2>
@@ -35,7 +35,7 @@ const CategoryPreview = () => {
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12">
+        <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-20 p-8 sm:p-12">
           <h2 className="text-lg font-medium text-white text-opacity-75">
             Desk and Office
           </h2>

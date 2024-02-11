@@ -1,6 +1,6 @@
 import { Arsenal } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 
 const arsenal = Arsenal({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
       <body className={arsenal.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

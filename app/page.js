@@ -1,4 +1,4 @@
-import { CategoryPreview, Hero, ProductsSection } from "@/components";
+import { CategoryPreview, Hero, ProductsSection, BenefitsSection } from "@/components";
 
 
 export default function Home() {
@@ -6,5 +6,6 @@ export default function Home() {
     <Hero />
     <CategoryPreview />
     <ProductsSection />
+    <BenefitsSection />
   </main>;
 }
