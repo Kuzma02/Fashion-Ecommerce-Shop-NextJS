@@ -97,7 +97,7 @@ const navigation = {
   
   const Footer = () => {
     return (
-        <footer className="bg-white max-w-screen-2xl mx-auto" aria-labelledby="footer-heading">
+        <footer className="bg-white max-w-screen-2xl mx-auto mt-16" aria-labelledby="footer-heading">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
