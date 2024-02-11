@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { MdOutlineStarOutline } from "react-icons/md";
+import Link from "next/link";
 
 const ProductItem = ({ product }) => {
   return (
@@ -13,7 +14,7 @@ const ProductItem = ({ product }) => {
         alt={product.name}
       />
       <div className="flex flex-col items-center gap-y-[1px] mt-1">
-        <h2 className="text-xl">{product.name}</h2>
+        <Link href={product.href}><h2 className="text-xl">{product.name}</h2></Link>
         <p className="text-lg">{product.price}</p>
         <div className="text-black flex text-lg">
           <MdOutlineStarPurple500 />

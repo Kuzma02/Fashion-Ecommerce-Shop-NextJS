@@ -24,11 +24,11 @@ const Header = () => {
         </div>
       </div>
       <div className="flex justify-between max-w-screen-2xl mx-auto items-center py-2 max-2xl:px-5 max-lg:flex-col max-lg:gap-y-5 max-lg:py-5">
-        <Image src="/static/logo black v2.png" alt="next fashion logo" width={200} height={200} />
+        <Link href="/"><Image src="/static/logo black v2.png" alt="next fashion logo" width={200} height={200} /></Link>
         <div className="text-xl flex gap-x-5 max-[350px]:text-lg">
           <Link href="/" className="hover:underline underline-offset-4">Home</Link>
-          <Link href="/" className="hover:underline underline-offset-4">Shop</Link>
-          <Link href="/" className="hover:underline underline-offset-4">Contact</Link>
+          <Link href="/shop" className="hover:underline underline-offset-4">Shop</Link>
+          <Link href="/contact" className="hover:underline underline-offset-4">Contact</Link>
         </div>
 
         <div className="flex gap-x-5 text-2xl">
