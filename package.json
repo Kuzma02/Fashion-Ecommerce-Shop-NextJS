@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
+    "@tailwindcss/typography": "^0.5.10",
     "embla-carousel-react": "^8.0.0-rc22",
     "next": "14.1.0",
     "react": "^18",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
+    "daisyui": "^4.6.2",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",

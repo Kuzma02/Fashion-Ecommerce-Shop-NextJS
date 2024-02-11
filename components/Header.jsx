@@ -27,9 +27,7 @@ const Header = () => {
         <Image src="/static/logo black v2.png" alt="next fashion logo" width={200} height={200} />
         <div className="text-xl flex gap-x-5 max-[350px]:text-lg">
           <Link href="/" className="hover:underline underline-offset-4">Home</Link>
-          <Link href="/" className="hover:underline underline-offset-4">Men</Link>
-          <Link href="/" className="hover:underline underline-offset-4">Women</Link>
-          <Link href="/" className="hover:underline underline-offset-4">Kids</Link>
+          <Link href="/" className="hover:underline underline-offset-4">Shop</Link>
           <Link href="/" className="hover:underline underline-offset-4">Contact</Link>
         </div>
 

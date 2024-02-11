@@ -1,9 +1,10 @@
-import { Carousel, CategoryPreview } from "@/components";
+import { CategoryPreview, Hero, ProductsSection } from "@/components";
 
 
 export default function Home() {
   return <main className="max-w-screen-2xl mx-auto">
-    <Carousel />
+    <Hero />
     <CategoryPreview />
+    <ProductsSection />
   </main>;
 }
