@@ -7,7 +7,7 @@ function classNames(...classes) {
   }
 
 const SizePicker = ({product}) => {
-    const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+    const [selectedSize, setSelectedSize] = useState(product?.acf?.sizes[0]);
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between">
@@ -27,13 +27,13 @@ const SizePicker = ({product}) => {
       >
         <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-          {product.sizes.map((size) => (
+          {product?.acf?.sizes.map((size) => (
             <RadioGroup.Option
-              key={size.name}
+              key={size}
               value={size}
               className={({ active, checked }) =>
                 classNames(
-                  size.inStock
+                  true
                     ? "cursor-pointer focus:outline-none"
                     : "cursor-not-allowed opacity-25",
                   active ? "ring-2 ring-indigo-500 ring-offset-2" : "",
@@ -43,9 +43,9 @@ const SizePicker = ({product}) => {
                   "flex items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1"
                 )
               }
-              disabled={!size.inStock}
+
             >
-              <RadioGroup.Label as="span">{size.name}</RadioGroup.Label>
+              <RadioGroup.Label as="span">{size}</RadioGroup.Label>
             </RadioGroup.Option>
           ))}
         </div>

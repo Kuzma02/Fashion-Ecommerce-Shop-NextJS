@@ -84,8 +84,10 @@ const policies = [
 
 
 
-const SingleProductPage = () => {
+const SingleProductPage = async ({params}) => {
 
+  const req = await fetch(`http://localhost/headless-wp/wordpress/wp-json/wp/v2/products/${params.id}?acf_format=standard&_fields=id,title,acf`);
+  const singleProduct = await req.json();
   
   return (
     <div className="bg-white">
@@ -123,7 +125,7 @@ const SingleProductPage = () => {
                 aria-current="page"
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
-                {product.name}
+                {singleProduct?.title?.rendered}
               </a>
             </li>
           </ol>
@@ -133,19 +135,19 @@ const SingleProductPage = () => {
             <div className="lg:col-span-5 lg:col-start-8">
               <div className="flex justify-between">
                 <h1 className="text-xl font-medium text-gray-900">
-                  {product.name}
+                {singleProduct?.title?.rendered}
                 </h1>
                 <p className="text-xl font-medium text-gray-900">
-                  {product.price}
+                  ${singleProduct?.acf?.price}
                 </p>
               </div>
               {/* Reviews */}
-              <ProductRating product={product} />
+              <ProductRating product={singleProduct} />
 
             </div>
 
             {/* Image gallery */}
-            <SingleProductImages product={product} />
+            <SingleProductImages product={singleProduct} />
 
             <div className="mt-8 lg:col-span-5">
               <form>
@@ -153,7 +155,7 @@ const SingleProductPage = () => {
                 <ColorPicker product={product} />
 
                 {/* Size picker */}
-                <SizePicker product={product} />
+                <SizePicker product={singleProduct} />
 
                 <button
                   type="submit"

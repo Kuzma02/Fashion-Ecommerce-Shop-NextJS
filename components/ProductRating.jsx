@@ -7,20 +7,30 @@ function classNames(...classes) {
   }
 
 const ProductRating = ({product}) => {
+
+  const ratingArray = [100, 100, 100, 100, 100];
+
+  for(let i = 1; i <= product?.acf?.rating; i++){
+    ratingArray[i-1] = i;
+  }
+
+  console.log(ratingArray);
+  console.log(product?.acf?.rating);
+
   return (
     <div className="mt-4">
     <h2 className="sr-only">Reviews</h2>
     <div className="flex items-center">
       <p className="text-sm text-black">
-        {product.rating}
+        {product?.acf?.rating}
         <span className="sr-only"> out of 5 stars</span>
       </p>
       <div className="ml-1 flex items-center">
-        {[0, 1, 2, 3, 4].map((rating) => (
+        {ratingArray.map((rating) => (
           <IoStar
             key={rating}
             className={classNames(
-              product.rating > rating
+              product?.acf?.rating >= rating
                 ? "text-yellow-400"
                 : "text-gray-200",
               "h-5 w-5 flex-shrink-0"
@@ -40,7 +50,7 @@ const ProductRating = ({product}) => {
           href="#"
           className="text-sm font-medium text-black hover:text-gray-700"
         >
-          See all {product.reviewCount} reviews
+          See all 200 reviews
         </a>
       </div>
     </div>
