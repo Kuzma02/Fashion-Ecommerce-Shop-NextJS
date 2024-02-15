@@ -86,7 +86,7 @@ const policies = [
 
 const SingleProductPage = async ({params}) => {
 
-  const req = await fetch(`http://localhost/headless-wp/wordpress/wp-json/wp/v2/products/${params.id}?acf_format=standard&_fields=id,title,acf`);
+  const req = await fetch(`http://localhost:1337/api/products/${params.id}?populate=*`);
   const singleProduct = await req.json();
   
   return (
@@ -125,7 +125,7 @@ const SingleProductPage = async ({params}) => {
                 aria-current="page"
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
-                {singleProduct?.title?.rendered}
+                {singleProduct?.data?.attributes?.title}
               </a>
             </li>
           </ol>
@@ -135,10 +135,10 @@ const SingleProductPage = async ({params}) => {
             <div className="lg:col-span-5 lg:col-start-8">
               <div className="flex justify-between">
                 <h1 className="text-xl font-medium text-gray-900">
-                {singleProduct?.title?.rendered}
+                {singleProduct?.data?.attributes?.title}
                 </h1>
                 <p className="text-xl font-medium text-gray-900">
-                  ${singleProduct?.acf?.price}
+                  ${singleProduct?.data?.attributes?.price}
                 </p>
               </div>
               {/* Reviews */}

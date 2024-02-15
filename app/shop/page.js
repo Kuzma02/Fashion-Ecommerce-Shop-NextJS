@@ -18,7 +18,8 @@ import { Breadcrumb, Filters, Products } from "@/components";
 import React from "react";
 
 
-const Shop = () => {
+const Shop = ({ searchParams }) => {
+  console.log(searchParams);
   
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -26,7 +27,7 @@ const Shop = () => {
     <h1 className="text-5xl py-10 text-center">Shop Page</h1>
     <div className="grid grid-cols-[300px_1fr] max-lg:grid-cols-1">
         <div><Filters /></div>
-        <div><Products /></div>
+        <div><Products filterParams={searchParams} /></div>
     </div>
     </div>
   );

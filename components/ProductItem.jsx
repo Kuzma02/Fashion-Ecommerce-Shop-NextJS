@@ -4,34 +4,61 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 import { MdOutlineStarOutline } from "react-icons/md";
 import Link from "next/link";
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 const ProductItem = ({ product }) => {
+
+
+  const ratingArray = [100, 100, 100, 100, 100];
+
+  for(let i = 1; i <= product?.attributes?.rating; i++){
+    ratingArray[i-1] = i;
+  }
 
   return (
     <div>
       <Image
-        src={product?.acf?.images?.url}
+        src={`http://localhost:1337${product?.attributes?.images?.data[0]?.attributes?.url}`}
         width={300}
         height={300}
-        alt={product?.title?.rendered}
+        alt={product?.attributes?.title}
       />
       <div className="flex flex-col items-center gap-y-[1px] mt-1">
-        <Link href={`/product/${product.id}`}>
-          <h2 className="text-xl">{product?.title?.rendered}</h2>
+        <Link href={`/product/${product?.id}`}>
+          <h2 className="text-xl">{product?.attributes?.title}</h2>
         </Link>
-        <p className="text-lg">${product?.acf?.price}</p>
+        <p className="text-lg">${product?.attributes?.price}</p>
+        
         <div className="text-black flex text-lg">
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarOutline />
+        {ratingArray.map((rating) => (
+          <MdOutlineStarPurple500 className={classNames(
+              product?.attributes?.rating >= rating
+                ? "text-yellow-400"
+                : "text-gray-200",
+              "h-5 w-5 flex-shrink-0"
+            )} />
+            ))}
         </div>
         <div className="flex gap-x-1 mt-2">
-          {product?.acf?.sizes.map((size) => (
+
             <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
-              <p>{size}</p>
+              <p>XS</p>
             </div>
-          ))}
+
+            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+              <p>S</p>
+            </div>
+
+            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+              <p>L</p>
+            </div>
+
+            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+              <p>XL</p>
+            </div>
+
         </div>
         <button className="w-full bg-black py-2 text-sm text-white mt-2 border hover:bg-white hover:text-black border-black">
           Add to cart

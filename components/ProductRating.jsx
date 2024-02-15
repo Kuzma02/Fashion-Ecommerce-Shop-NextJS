@@ -10,12 +10,9 @@ const ProductRating = ({product}) => {
 
   const ratingArray = [100, 100, 100, 100, 100];
 
-  for(let i = 1; i <= product?.acf?.rating; i++){
+  for(let i = 1; i <= product?.data?.attributes?.rating; i++){
     ratingArray[i-1] = i;
   }
-
-  console.log(ratingArray);
-  console.log(product?.acf?.rating);
 
   return (
     <div className="mt-4">
@@ -30,7 +27,7 @@ const ProductRating = ({product}) => {
           <IoStar
             key={rating}
             className={classNames(
-              product?.acf?.rating >= rating
+              product?.data?.attributes?.rating >= rating
                 ? "text-yellow-400"
                 : "text-gray-200",
               "h-5 w-5 flex-shrink-0"

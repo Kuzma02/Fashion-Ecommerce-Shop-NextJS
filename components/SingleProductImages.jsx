@@ -13,7 +13,7 @@ const SingleProductImages = ({ product }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
         <Image
-          src={product?.acf?.images?.url}
+          src={`http://localhost:1337${product?.data?.attributes?.images?.data[0]?.attributes?.url}`}
           alt="random"
           width={500}
           height={500}
