@@ -16,7 +16,7 @@
 export const dynamic = 'force-dynamic';
 export const revalidate = 0
 
-import { Breadcrumb, Filters, ProductItem, Products } from "@/components";
+import { Breadcrumb, Filters, ProductItem } from "@/components";
 import React from "react";
 
 const Shop = async ({ searchParams }) => {

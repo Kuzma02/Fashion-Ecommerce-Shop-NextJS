@@ -14,3 +14,4 @@ export { default as SizePicker } from "./SizePicker";
 export { default as ProductRating } from "./ProductRating";
 export { default as SingleProductImages } from "./SingleProductImages";
 export { default as ItemAddToCartBtn } from "./ItemAddToCartBtn";
+export { default as CartList } from "./CartList";

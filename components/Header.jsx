@@ -35,7 +35,7 @@ const Header = () => {
           <IoSearchOutline className="cursor-pointer" />
           <IoPersonSharp className="cursor-pointer" />
           <IoHeart className="cursor-pointer" />
-          <IoCartOutline className="cursor-pointer" />
+          <Link href="/cart"><IoCartOutline className="cursor-pointer" /></Link>
         </div>
 
       </div>
