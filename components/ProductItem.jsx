@@ -3,18 +3,17 @@ import Image from "next/image";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { MdOutlineStarOutline } from "react-icons/md";
 import Link from "next/link";
+import { ItemAddToCartBtn } from ".";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const ProductItem = ({ product }) => {
-
-
   const ratingArray = [100, 100, 100, 100, 100];
 
-  for(let i = 1; i <= product?.attributes?.rating; i++){
-    ratingArray[i-1] = i;
+  for (let i = 1; i <= product?.attributes?.rating; i++) {
+    ratingArray[i - 1] = i;
   }
 
   return (
@@ -30,39 +29,38 @@ const ProductItem = ({ product }) => {
           <h2 className="text-xl">{product?.attributes?.title}</h2>
         </Link>
         <p className="text-lg">${product?.attributes?.price}</p>
-        
+
         <div className="text-black flex text-lg">
-        {ratingArray.map((rating, idx) => (
-          <MdOutlineStarPurple500 key={idx} className={classNames(
-              product?.attributes?.rating >= rating
-                ? "text-yellow-400"
-                : "text-gray-200",
-              "h-5 w-5 flex-shrink-0"
-            )} />
-            ))}
+          {ratingArray.map((rating, idx) => (
+            <MdOutlineStarPurple500
+              key={idx}
+              className={classNames(
+                product?.attributes?.rating >= rating
+                  ? "text-yellow-400"
+                  : "text-gray-200",
+                "h-5 w-5 flex-shrink-0"
+              )}
+            />
+          ))}
         </div>
         <div className="flex gap-x-1 mt-2">
+          <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+            <p>XS</p>
+          </div>
 
-            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
-              <p>XS</p>
-            </div>
+          <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+            <p>S</p>
+          </div>
 
-            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
-              <p>S</p>
-            </div>
+          <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+            <p>L</p>
+          </div>
 
-            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
-              <p>L</p>
-            </div>
-
-            <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
-              <p>XL</p>
-            </div>
-
+          <div className="w-6 h-6 bg-black text-white flex justify-center items-center text-sm">
+            <p>XL</p>
+          </div>
         </div>
-        <button className="w-full bg-black py-2 text-sm text-white mt-2 border hover:bg-white hover:text-black border-black">
-          Add to cart
-        </button>
+        <ItemAddToCartBtn id={product?.id} title={product?.attributes?.title} price={product?.attributes?.price} image={`http://localhost:1337${product?.attributes?.images?.data[0]?.attributes?.url}`} />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { Arsenal } from "next/font/google";
 import "./globals.css";
 import { Footer, Header } from "@/components";
+import { ReduxProvider } from "./_redux/provider";
 
 const arsenal = Arsenal({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -13,9 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={arsenal.className}>
-        <Header />
-        {children}
-        <Footer />
+        <ReduxProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
