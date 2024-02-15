@@ -15,3 +15,4 @@ export { default as ProductRating } from "./ProductRating";
 export { default as SingleProductImages } from "./SingleProductImages";
 export { default as ItemAddToCartBtn } from "./ItemAddToCartBtn";
 export { default as CartList } from "./CartList";
+export { default as CartTotals } from "./CartTotals";
