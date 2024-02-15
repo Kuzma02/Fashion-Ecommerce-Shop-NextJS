@@ -4,7 +4,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import React from 'react'
 import { HiOutlineXMark } from "react-icons/hi2";
-import { removeItem } from "@/app/_redux/features/cart-slice";
+import { removeItem, updateQuantity } from "@/app/_redux/features/cart-slice";
 import { useDispatch } from "react-redux";
 
 const CartList = () => {
@@ -58,20 +58,7 @@ const CartList = () => {
               >
                 Quantity, {item?.product?.title}
               </label>
-              <select
-                id={`quantity-${item?.product?.id}`}
-                name={`quantity-${item?.product?.id}`}
-                className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-              >
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-              </select>
+              <input type="text" className="w-16 h-10 bg-white border border-1 border-black" value={item.product.amount} onChange={(e) => dispatch(updateQuantity({product: {id: item.product.id, quantity: e.target.value}}))} />
 
               <div className="absolute right-0 top-0">
                 <button
@@ -105,7 +92,7 @@ const CartList = () => {
             <span>
               {true
                 ? "In stock"
-                : `Ships in ${product.leadTime}`}
+                : `Ships in 3 days`}
             </span>
           </p>
         </div>

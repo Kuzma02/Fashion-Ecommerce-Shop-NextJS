@@ -39,10 +39,15 @@ const cartSlice = createSlice({
       state.total = total;
     },
     updateQuantity: (state, action) => {
+      console.log("changed quantity");
       const cartItem = state.cartItems.find((item) => {
         return item.product.id === action.payload.product.id;
       });
-      cartItem.product.amount = Number(action.payload.product.quantity);
+      if(action.payload.product.quantity < 1){
+        cartItem.product.amount = 1;
+      }else{
+        cartItem.product.amount = Number(action.payload.product.quantity);
+      }
       const { amount, total } = calculateTotals(state.cartItems);
       state.amount = amount;
       state.total = total;
