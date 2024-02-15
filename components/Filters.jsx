@@ -62,11 +62,10 @@ const Filters = () => {
     const params = new URLSearchParams();
     
     params.set("women", inputCategory.box1.isChecked);
-    params.set("women-new-edition", inputCategory.box2.isChecked);
+    params.set("womenNewEdition", inputCategory.box2.isChecked);
     params.set("price", inputCategory.priceFilter.value)
     replace(`${pathname}?${params}`);
 
-    // http://localhost:1337/api/products?populate=*&filters[price][$lte]=100
 
   }, [inputCategory])
   

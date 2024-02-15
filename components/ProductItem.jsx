@@ -32,8 +32,8 @@ const ProductItem = ({ product }) => {
         <p className="text-lg">${product?.attributes?.price}</p>
         
         <div className="text-black flex text-lg">
-        {ratingArray.map((rating) => (
-          <MdOutlineStarPurple500 className={classNames(
+        {ratingArray.map((rating, idx) => (
+          <MdOutlineStarPurple500 key={idx} className={classNames(
               product?.attributes?.rating >= rating
                 ? "text-yellow-400"
                 : "text-gray-200",
