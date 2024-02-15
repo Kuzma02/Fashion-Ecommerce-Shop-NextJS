@@ -23,7 +23,9 @@ const Shop = async ({ searchParams }) => {
   const req = await fetch(
     `http://localhost:1337/api/products?populate=*&filters[price][$lte]=${
       searchParams?.price || 1000
-    }${searchParams.women === "true" ? "&filters[category][$eq]=women" : ""}${searchParams.womenNewEdition === "true" ? "&filters[category][$eq]=women%20new%20edition" : ""}`
+    }${searchParams.women === "true" ? "&filters[category][$eq]=women" : ""}${searchParams.womenNewEdition === "true" ? "&filters[category][$eq]=women%20new%20edition" : ""}&filters[rating][$gte]=${
+      searchParams?.rating || 1
+    }`
   );
   const products = await req.json();
 

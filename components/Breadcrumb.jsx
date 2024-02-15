@@ -36,7 +36,7 @@ const Breadcrumb = () => {
               href="#"
               className="ms-1 text-sm font-medium text-black hover:text-gray-700 md:ms-2 text-xl"
             >
-              Projects
+              Shop
             </a>
           </div>
         </li>

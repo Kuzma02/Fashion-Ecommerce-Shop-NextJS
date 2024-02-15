@@ -52,7 +52,7 @@ const Filters = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const pathname = usePathname();
   const { replace } = new useRouter();
-  const [ inputCategory, setInputCategory ] = useState({box1: {text: "women", isChecked: false}, box2: {text: "women new edition", isChecked: false}, priceFilter: {text: "price", value: 1000}});
+  const [ inputCategory, setInputCategory ] = useState({box1: {text: "women", isChecked: false}, box2: {text: "women new edition", isChecked: false}, priceFilter: {text: "price", value: 1000}, ratingFilter: {text:"rating", value: "1"}});
 
   const filterProducts = (e) => {
     console.log(e.target);
@@ -64,6 +64,7 @@ const Filters = () => {
     params.set("women", inputCategory.box1.isChecked);
     params.set("womenNewEdition", inputCategory.box2.isChecked);
     params.set("price", inputCategory.priceFilter.value)
+    params.set("rating", inputCategory.ratingFilter.value)
     replace(`${pathname}?${params}`);
 
 
@@ -96,6 +97,17 @@ const Filters = () => {
   <span>700</span>
   <span>1000</span>
 </div>
+
+<h3 className="text-xl my-2">Rating filter:</h3>
+<input type="range" min={1} max="5" value={inputCategory.ratingFilter.value} onChange={(e) => setInputCategory({...inputCategory, ratingFilter: {text: "rating", value: e.target.value}})} className="range" step="1" />
+<div className="w-full flex justify-between text-xs px-2">
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+  <span>4</span>
+  <span>5</span>
+</div>
+
       </form>
     </div>
   );
